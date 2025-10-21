@@ -138,8 +138,13 @@
 
 
 <!-- Hero -->
-<section :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-gradient-to-br from-bitter to-bitter-dark text-white'" class="py-20 transition-colors duration-300">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+<section
+  :class="$store.dark.on
+    ? 'bg-gradient-to-br from-[#131313] to-[#1a1a1a] text-bitter-light'
+    : 'bg-gradient-to-br from-bitter to-bitter-dark text-white'"
+  class="py-20 transition-colors duration-300"
+>
+<div class="max-w-4xl mx-auto px-6 text-center">
     <h2 :class="$store.dark.on ? 'text-4xl font-bold mb-4 text-bitter' : 'text-4xl font-bold mb-4 text-white'">
       {{ i18n "hero_title" }}
     </h2>
@@ -170,7 +175,7 @@
 
 <!-- Services -->
 <section id="services"
-  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter-light text-bitter-dark'"
+  :class="$store.dark.on ? 'bg-[#1a1a1a] text-bitter-light' : 'bg-bitter-light text-bitter-dark'"
   class="py-20 px-6 transition-colors duration-300">
   <div class="max-w-6xl mx-auto">
     <h2 :class="$store.dark.on ? 'text-3xl font-bold text-center text-bitter mb-12' : 'text-3xl font-bold text-center text-bitter mb-12'">
@@ -179,9 +184,9 @@
     <div class="grid md:grid-cols-3 gap-8">
       <!-- Service Card -->
       <div
-        :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'"
+        :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'"
         class="transition-colors duration-300">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_tokenization_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -190,8 +195,8 @@
       </div>
 
       <!-- Repeat for other services -->
-      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+      <div :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_identity_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -199,8 +204,8 @@
         </p>
       </div>
 
-      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+      <div :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_dao_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -208,8 +213,8 @@
         </p>
       </div>
 
-      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+      <div :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_shares_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -217,8 +222,8 @@
         </p>
       </div>
 
-      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+      <div :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_platform_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -226,8 +231,8 @@
         </p>
       </div>
 
-      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
-        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+      <div :class="$store.dark.on ? 'bg-[#2a2a2a] border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 class="text-xl font-semibold text-bitter mb-2">
           {{ i18n "service_access_title" }}
         </h3>
         <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
@@ -237,6 +242,7 @@
     </div>
   </div>
 </section>
+
 
 
 <!-- Features -->
@@ -293,7 +299,7 @@
 
 <!-- Mission -->
 <section id="mission"
-  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter text-white'"
+  :class="$store.dark.on ? 'bg-[#1a1a1a] text-bitter-light' : 'bg-bitter text-white'"
   class="py-20 px-6 text-center transition-colors duration-300">
   <div class="max-w-4xl mx-auto border border-bitter rounded-xl p-6">
     <h2 :class="$store.dark.on ? 'text-3xl font-bold mb-4 text-bitter' : 'text-3xl font-bold mb-4 text-white'">
