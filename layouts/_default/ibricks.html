@@ -5,6 +5,7 @@
     this.dark = !this.dark;
     localStorage.setItem('darkMode', this.dark);
     document.documentElement.classList.toggle('dark', this.dark);
+    location.reload();
   }
 }" x-init="document.documentElement.classList.toggle('dark', dark)">
 <head>
@@ -39,9 +40,10 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    const isDark = localStorage.getItem('darkMode') === 'true';
     mermaid.initialize({
       startOnLoad: true,
-      theme: 'default',
+      theme: isDark ? 'dark' : 'default',
       themeCSS: `
         .node text {
           font-family: 'Orbitron', sans-serif;
@@ -51,16 +53,55 @@
         }
       `
     });
-  initializeMermaid();
   </script>
   <script>
   document.addEventListener('alpine:init', () => {
+    Alpine.store('mermaidFlow', {
+      isMobile: window.innerWidth < 768,
+        generateDiagram(direction = 'LR', isDark = false) {
+          this.direction = direction;
+          const processFill = isDark ? '#4A2C0F' : '#FFE3CC';
+          const processText = isDark ? '#FFE3CC' : '#4A2C0F';
+          const highlightFill =  isDark ? '#f9710f' : '#f9710f';
+          const highlightText = isDark ? '#fff8f0' : '#FFE3CC';
+
+          return `
+            flowchart ${direction}
+
+              subgraph RWA
+                A[{{ i18n "node_asset_origination" }}] --> I[{{ i18n "node_rwa_due_diligence" }}]
+                I --> J[{{ i18n "node_asset_valuation" }}]
+              end
+
+              subgraph Tokenization
+                J --> B[{{ i18n "node_tokenization" }}]
+                B --> C[{{ i18n "node_investor_onboarding" }}]
+                C --> D[{{ i18n "node_smart_contract" }}]
+                D --> E[{{ i18n "node_yield_distribution" }}]
+              end
+
+              subgraph DAO Governance
+                B --> F[{{ i18n "node_governance_setup" }}]
+                F --> G[{{ i18n "node_proposal_creation" }}]
+                G --> H[{{ i18n "node_voting_process" }}]
+                H --> F
+              end
+
+              classDef process fill:${processFill},stroke:#f9710f,stroke-width:2px,color:${processText},shape:rect;
+              classDef highlight fill:${highlightFill},stroke:#4A2C0F,stroke-width:3px,color:${highlightText},shape:rect;
+
+              class A,C,D,E,F,G,H,I,J process;
+              class B highlight;
+          `;
+        }
+    });
     Alpine.store('dark', {
       on: localStorage.getItem('darkMode') === 'true',
       toggle() {
         this.on = !this.on;
         localStorage.setItem('darkMode', this.on);
         document.documentElement.classList.toggle('dark', this.on);
+        location.reload();
       }
     });
     document.documentElement.classList.toggle('dark', Alpine.store('dark').on);
@@ -74,6 +115,15 @@
   </style>
 </head>
 <body :class="$store.dark.on ? 'bg-black text-bitter-light font-orbitron' : 'bg-bitter-light text-bitter-dark font-orbitron'">
+<div
+  x-show="showSpinner"
+  x-transition.opacity
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+  style="display: none"
+>
+  <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-bitter"></div>
+</div>
+
 
 <!-- Header -->
 <header x-data="{ open: false }"
@@ -326,65 +376,19 @@
           isMobile = window.innerWidth < 768;
         });
       ">
-                <!-- Mobile Mermaid (vertical) -->
-        <div x-show="isMobile" class="mermaid font-orbitron">
-          flowchart TD
+        <div
+          x-show="$store.mermaidFlow.isMobile"
+          x-init="$nextTick(() => mermaid ? mermaid.init(undefined, $el) : null)"
+          class="mermaid font-orbitron"
+          x-text="$store.mermaidFlow.generateDiagram('TD', $store.dark.on)"
+        ></div>
+        <div
+          x-show="!$store.mermaidFlow.isMobile"
+          x-init="$nextTick(() => mermaid ? mermaid.init(undefined, $el) : null)"
+          class="mermaid font-orbitron"
+          x-text="$store.mermaidFlow.generateDiagram('LR', $store.dark.on)"
+        ></div>
 
-            subgraph RWA
-              A[{{ i18n "node_asset_origination" }}] --> I[{{ i18n "node_rwa_due_diligence" }}]
-              I --> J[{{ i18n "node_asset_valuation" }}]
-            end
-
-            subgraph Tokenization
-              J --> B[{{ i18n "node_tokenization" }}]
-              B --> C[{{ i18n "node_investor_onboarding" }}]
-              C --> D[{{ i18n "node_smart_contract" }}]
-              D --> E[{{ i18n "node_yield_distribution" }}]
-            end
-
-            subgraph DAO Governance
-              B --> F[{{ i18n "node_governance_setup" }}]
-              F --> G[{{ i18n "node_proposal_creation" }}]
-              G --> H[{{ i18n "node_voting_process" }}]
-              H --> F
-            end
-
-            classDef process fill:#FFE3CC,stroke:#f9710f,stroke-width:2px,color:#4A2C0F,shape:rect;
-            classDef highlight fill:#f9710f,stroke:#4A2C0F,stroke-width:3px,color:#FFE3CC,shape:rect;
-
-            class A,C,D,E,F,G,H,I,J process;
-            class B highlight;
-
-      </div>
-        <!-- Desktop Mermaid (horizontal) -->
-        <div x-show="!isMobile" class="mermaid font-orbitron">
-          flowchart LR
-
-            subgraph RWA
-              A[{{ i18n "node_asset_origination" }}] --> I[{{ i18n "node_rwa_due_diligence" }}]
-              I --> J[{{ i18n "node_asset_valuation" }}]
-            end
-
-            subgraph Tokenization
-              J --> B[{{ i18n "node_tokenization" }}]
-              B --> C[{{ i18n "node_investor_onboarding" }}]
-              C --> D[{{ i18n "node_smart_contract" }}]
-              D --> E[{{ i18n "node_yield_distribution" }}]
-            end
-
-            subgraph DAO Governance
-              B --> F[{{ i18n "node_governance_setup" }}]
-              F --> G[{{ i18n "node_proposal_creation" }}]
-              G --> H[{{ i18n "node_voting_process" }}]
-              H --> F
-            end
-
-            classDef process fill:#FFE3CC,stroke:#f9710f,stroke-width:2px,color:#4A2C0F,shape:rect;
-            classDef highlight fill:#f9710f,stroke:#4A2C0F,stroke-width:3px,color:#FFE3CC,shape:rect;
-
-            class A,C,D,E,F,G,H,I,J process;
-            class B highlight;
-        </div>
     </div>
   </div>
 </section>
