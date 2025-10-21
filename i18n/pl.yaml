@@ -71,3 +71,28 @@
 - id: feature_interop_title
   translation: "Standardy interoperacyjne"
 - id: feature
+
+# Sekcja Workflow
+- id: workflow_title
+  translation: "Przegląd procesu"
+- id: node_asset_origination
+  translation: "Pozyskiwanie aktywów"
+- id: node_rwa_due_diligence
+  translation: "Analiza due diligence RWA"
+- id: node_asset_valuation
+  translation: "Wycena aktywów"
+- id: node_tokenization
+  translation: "Tokenizacja"
+- id: node_investor_onboarding
+  translation: "Rejestracja inwestora"
+- id: node_smart_contract
+  translation: "Wdrożenie smart kontraktu"
+- id: node_yield_distribution
+  translation: "Dystrybucja zysków"
+- id: node_governance_setup
+  translation: "Konfiguracja zarządzania"
+- id: node_proposal_creation
+  translation: "Tworzenie propozycji"
+- id: node_voting_process
+  translation: "Proces głosowania"
+

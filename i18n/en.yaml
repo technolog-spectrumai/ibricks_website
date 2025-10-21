@@ -94,4 +94,27 @@
 # Footer
 - id: footer_copyright
   translation: "© 2025 SpectrumAi.pl"
+# Workflow Section
+- id: workflow_title
+  translation: "Workflow Overview"
+- id: node_asset_origination
+  translation: "Asset Origination"
+- id: node_rwa_due_diligence
+  translation: "RWA Due Diligence"
+- id: node_asset_valuation
+  translation: "Asset Valuation"
+- id: node_tokenization
+  translation: "Tokenization"
+- id: node_investor_onboarding
+  translation: "Investor Onboarding"
+- id: node_smart_contract
+  translation: "Smart Contract Deployment"
+- id: node_yield_distribution
+  translation: "Yield Distribution"
+- id: node_governance_setup
+  translation: "Governance Setup"
+- id: node_proposal_creation
+  translation: "Proposal Creation"
+- id: node_voting_process
+  translation: "Voting Process"
 
