@@ -1,0 +1,22 @@
+baseURL = "https://ibricks-website.pages.dev/"
+title = "iBricks"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[languages]
+
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en"
+
+  [languages.pl]
+    languageName = "Polski"
+    weight = 2
+    contentDir = "content/pl"
+
+  [languages.fr]
+    languageName = "Français"
+    weight = 3
+    contentDir = "content/fr"
+

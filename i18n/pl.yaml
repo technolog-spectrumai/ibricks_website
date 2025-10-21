@@ -1,0 +1,73 @@
+- id: site_title
+  translation: "Projekt iBricks"
+- id: brand_name
+  translation: "iBricks"
+
+# Nawigacja
+- id: nav_about
+  translation: "O nas"
+- id: nav_services
+  translation: "Usługi"
+- id: nav_features
+  translation: "Funkcje"
+- id: nav_mission
+  translation: "Misja"
+- id: nav_contact
+  translation: "Kontakt"
+
+# Sekcja Hero
+- id: hero_title
+  translation: "Tokenizacja rzeczywistego świata"
+- id: hero_description
+  translation: "Wzmacniamy społeczności na całym świecie dzięki blockchainowi, cyfrowej tożsamości i zdecentralizowanemu zarządzaniu."
+- id: hero_cta
+  translation: "Poznaj funkcje"
+
+# Sekcja O nas
+- id: about_title
+  translation: "O iBricks"
+- id: about_description
+  translation: "iBricks to globalna inicjatywa infrastrukturalna oparta na technologii blockchain. Umożliwiamy społecznościom tokenizację rzeczywistych aktywów, tworzenie bezpiecznych cyfrowych tożsamości i udział w zdecentralizowanym zarządzaniu. Naszą misją jest zapewnienie dostępu do własności, kapitału i możliwości dla wszystkich — bez granic i uprzedzeń."
+
+# Sekcja Usługi
+- id: services_title
+  translation: "Nasze usługi"
+- id: service_tokenization_title
+  translation: "Tokenizacja aktywów"
+- id: service_tokenization_desc
+  translation: "Przekształcamy fizyczne aktywa w cyfrowe tokeny umożliwiające przejrzystą, częściową własność."
+- id: service_identity_title
+  translation: "Cyfrowa tożsamość"
+- id: service_identity_desc
+  translation: "Systemy tożsamości oparte na samodzielnym zarządzaniu dla bezpiecznego dostępu, weryfikacji i budowania reputacji."
+- id: service_dao_title
+  translation: "Zarządzanie DAO"
+- id: service_dao_desc
+  translation: "Konfigurowalne struktury DAO umożliwiające podejmowanie decyzji i alokację zasobów przez społeczność."
+- id: service_shares_title
+  translation: "Cyfrowe udziały"
+- id: service_shares_desc
+  translation: "Programowalne narzędzia kapitałowe dla startupów, spółdzielni i lokalnych inicjatyw."
+- id: service_platform_title
+  translation: "Platforma społecznościowa"
+- id: service_platform_desc
+  translation: "Narzędzia do współpracy w zakresie głosowania, propozycji i przejrzystej komunikacji."
+- id: service_access_title
+  translation: "Globalny dostęp"
+- id: service_access_desc
+  translation: "Infrastruktura zaprojektowana z myślą o regionach rozwijających się i cyfrowo wykluczonych społecznościach."
+
+# Sekcja Funkcje
+- id: features_title
+  translation: "Funkcje platformy"
+- id: feature_modular_title
+  translation: "Modularna architektura"
+- id: feature_modular_desc
+  translation: "Zbudowana z myślą o rozszerzalności, z modułami typu plug-and-play dla tożsamości, aktywów i zarządzania."
+- id: feature_secure_title
+  translation: "Bezpieczne protokoły"
+- id: feature_secure_desc
+  translation: "Szyfrowanie end-to-end, dowody zerowej wiedzy i zabezpieczenia po kompromitacji wbudowane w system."
+- id: feature_interop_title
+  translation: "Standardy interoperacyjne"
+- id: feature

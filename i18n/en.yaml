@@ -1,0 +1,97 @@
+- id: site_title
+  translation: "iBricks Project"
+- id: brand_name
+  translation: "iBricks"
+
+# Navigation
+- id: nav_about
+  translation: "About"
+- id: nav_services
+  translation: "Services"
+- id: nav_features
+  translation: "Features"
+- id: nav_mission
+  translation: "Mission"
+- id: nav_contact
+  translation: "Contact"
+
+# Hero Section
+- id: hero_title
+  translation: "Tokenizing the Real World"
+- id: hero_description
+  translation: "Empowering communities globally through blockchain, digital identity, and decentralized governance."
+- id: hero_cta
+  translation: "Explore Features"
+
+# About Section
+- id: about_title
+  translation: "About iBricks"
+- id: about_description
+  translation: "iBricks is a global infrastructure initiative built on blockchain. We enable communities to tokenize real-world assets, establish secure digital identities, and participate in decentralized governance. Our mission is to make ownership, equity, and opportunity accessible to all—without borders or bias."
+
+# Services Section
+- id: services_title
+  translation: "Our Services"
+- id: service_tokenization_title
+  translation: "Asset Tokenization"
+- id: service_tokenization_desc
+  translation: "We convert physical assets into digital tokens for transparent, fractional ownership."
+- id: service_identity_title
+  translation: "Digital Identity"
+- id: service_identity_desc
+  translation: "Self-sovereign identity systems for secure access, verification, and reputation building."
+- id: service_dao_title
+  translation: "DAO Governance"
+- id: service_dao_desc
+  translation: "Customizable DAO frameworks for community-led decision making and resource allocation."
+- id: service_shares_title
+  translation: "Digital Shares"
+- id: service_shares_desc
+  translation: "Programmable equity tools for startups, cooperatives, and local ventures."
+- id: service_platform_title
+  translation: "Community Platform"
+- id: service_platform_desc
+  translation: "Collaboration tools for voting, proposals, and transparent communication."
+- id: service_access_title
+  translation: "Global Access"
+- id: service_access_desc
+  translation: "Infrastructure designed to serve emerging regions and digitally underserved communities."
+
+# Features Section
+- id: features_title
+  translation: "Platform Features"
+- id: feature_modular_title
+  translation: "Modular Architecture"
+- id: feature_modular_desc
+  translation: "Built for extensibility, with plug-and-play modules for identity, assets, and governance."
+- id: feature_secure_title
+  translation: "Secure Protocols"
+- id: feature_secure_desc
+  translation: "End-to-end encryption, zero-knowledge proofs, and post-compromise security baked in."
+- id: feature_interop_title
+  translation: "Interoperable Standards"
+- id: feature_interop_desc
+  translation: "Supports DID, ERC tokens, and open APIs for seamless integration across ecosystems."
+- id: feature_empowerment_title
+  translation: "Community Empowerment Tools"
+- id: feature_empowerment_desc
+  translation: "Built for digital citizens—collaborative actions, open-source utilities, and adaptive workflows that amplify freedom and productivity."
+
+# Mission Section
+- id: mission_title
+  translation: "Our Mission"
+- id: mission_description
+  translation: "We envision a decentralized world where every person and community can access secure, transparent, and equitable infrastructure. iBricks is committed to building tools that scale across cultures, geographies, and economic conditions—empowering the next billion users."
+
+# Contact Section
+- id: contact_title
+  translation: "Get Involved"
+- id: contact_description
+  translation: "Whether you're a developer, investor, or community leader—we’d love to hear from you."
+- id: contact_cta
+  translation: "Contact Us"
+
+# Footer
+- id: footer_copyright
+  translation: "© 2025 SpectrumAi.pl"
+

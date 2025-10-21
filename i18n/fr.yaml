@@ -1,0 +1,97 @@
+- id: site_title
+  translation: "Projet iBricks"
+- id: brand_name
+  translation: "iBricks"
+
+# Navigation
+- id: nav_about
+  translation: "À propos"
+- id: nav_services
+  translation: "Services"
+- id: nav_features
+  translation: "Fonctionnalités"
+- id: nav_mission
+  translation: "Mission"
+- id: nav_contact
+  translation: "Contact"
+
+# Hero Section
+- id: hero_title
+  translation: "Tokeniser le monde réel"
+- id: hero_description
+  translation: "Autonomiser les communautés à l’échelle mondiale grâce à la blockchain, à l’identité numérique et à la gouvernance décentralisée."
+- id: hero_cta
+  translation: "Explorer les fonctionnalités"
+
+# About Section
+- id: about_title
+  translation: "À propos de iBricks"
+- id: about_description
+  translation: "iBricks est une initiative d’infrastructure mondiale basée sur la blockchain. Nous permettons aux communautés de tokeniser des actifs réels, de créer des identités numériques sécurisées et de participer à une gouvernance décentralisée. Notre mission est de rendre la propriété, l’équité et les opportunités accessibles à tous — sans frontières ni préjugés."
+
+# Services Section
+- id: services_title
+  translation: "Nos services"
+- id: service_tokenization_title
+  translation: "Tokenisation d’actifs"
+- id: service_tokenization_desc
+  translation: "Nous transformons les actifs physiques en jetons numériques pour une propriété fractionnée et transparente."
+- id: service_identity_title
+  translation: "Identité numérique"
+- id: service_identity_desc
+  translation: "Systèmes d’identité auto-souveraine pour un accès sécurisé, une vérification fiable et une réputation construite."
+- id: service_dao_title
+  translation: "Gouvernance DAO"
+- id: service_dao_desc
+  translation: "Cadres DAO personnalisables pour une prise de décision communautaire et une allocation des ressources."
+- id: service_shares_title
+  translation: "Actions numériques"
+- id: service_shares_desc
+  translation: "Outils d’équité programmables pour les startups, les coopératives et les initiatives locales."
+- id: service_platform_title
+  translation: "Plateforme communautaire"
+- id: service_platform_desc
+  translation: "Outils de collaboration pour le vote, les propositions et une communication transparente."
+- id: service_access_title
+  translation: "Accès mondial"
+- id: service_access_desc
+  translation: "Infrastructure conçue pour les régions émergentes et les communautés numériquement marginalisées."
+
+# Features Section
+- id: features_title
+  translation: "Fonctionnalités de la plateforme"
+- id: feature_modular_title
+  translation: "Architecture modulaire"
+- id: feature_modular_desc
+  translation: "Conçue pour l’extensibilité, avec des modules plug-and-play pour l’identité, les actifs et la gouvernance."
+- id: feature_secure_title
+  translation: "Protocoles sécurisés"
+- id: feature_secure_desc
+  translation: "Chiffrement de bout en bout, preuves à divulgation nulle et sécurité post-compromission intégrée."
+- id: feature_interop_title
+  translation: "Normes interopérables"
+- id: feature_interop_desc
+  translation: "Prise en charge des DID, des jetons ERC et des API ouvertes pour une intégration fluide dans les écosystèmes."
+- id: feature_empowerment_title
+  translation: "Outils d’autonomisation communautaire"
+- id: feature_empowerment_desc
+  translation: "Conçus pour les citoyens numériques — actions collaboratives, utilitaires open-source et flux de travail adaptatifs qui renforcent la liberté et la productivité."
+
+# Mission Section
+- id: mission_title
+  translation: "Notre mission"
+- id: mission_description
+  translation: "Nous imaginons un monde décentralisé où chaque personne et chaque communauté peut accéder à une infrastructure sécurisée, transparente et équitable. iBricks s’engage à créer des outils qui s’adaptent aux cultures, aux géographies et aux conditions économiques — pour autonomiser le prochain milliard d’utilisateurs."
+
+# Contact Section
+- id: contact_title
+  translation: "Rejoignez-nous"
+- id: contact_description
+  translation: "Que vous soyez développeur, investisseur ou leader communautaire — nous serions ravis d’échanger avec vous."
+- id: contact_cta
+  translation: "Nous contacter"
+
+# Footer
+- id: footer_copyright
+  translation: "© 2025 SpectrumAi.pl"
+
