@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ .Site.Language.Lang }}" x-data="{
+  dark: localStorage.getItem('darkMode') === 'true',
+  toggleDark() {
+    this.dark = !this.dark;
+    localStorage.setItem('darkMode', this.dark);
+    document.documentElement.classList.toggle('dark', this.dark);
+  }
+}" x-init="document.documentElement.classList.toggle('dark', dark)">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,24 +14,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bitter: {
-              light: '#FFE3CC',
-              DEFAULT: '#f9710f',
-              dark: '#4A2C0F',
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              bitter: {
+                light: '#FFE3CC',
+                DEFAULT: '#f9710f', // neon orange
+                dark: '#4A2C0F',
+              },
+            },
+            fontFamily: {
+              orbitron: ['Orbitron', 'sans-serif'],
+            },
+            boxShadow: {
+              neon: '0 0 10px rgba(249,113,15,0.6)', // bitter orange glow
             },
           },
-          fontFamily: {
-            orbitron: ['Orbitron', 'sans-serif'],
-          },
         },
-      },
-    };
-  </script>
+      };
+    </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -40,143 +51,276 @@
         }
       `
     });
+  initializeMermaid();
   </script>
+  <script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('dark', {
+      on: localStorage.getItem('darkMode') === 'true',
+      toggle() {
+        this.on = !this.on;
+        localStorage.setItem('darkMode', this.on);
+        document.documentElement.classList.toggle('dark', this.on);
+      }
+    });
+    document.documentElement.classList.toggle('dark', Alpine.store('dark').on);
+  });
+  </script>
+
   <style>
     .mermaid {
       font-family: 'Orbitron', sans-serif !important;
     }
   </style>
 </head>
-<body class="bg-bitter-light text-bitter-dark font-orbitron">
+<body :class="$store.dark.on ? 'bg-black text-bitter-light font-orbitron' : 'bg-bitter-light text-bitter-dark font-orbitron'">
 
 <!-- Header -->
-<header class="bg-bitter-dark shadow" x-data="{ open: false }">
+<header x-data="{ open: false }"
+  :class="$store.dark.on ? 'bg-black text-bitter-light shadow-lg border-b border-bitter' : 'bg-bitter-dark text-bitter-light shadow'">
   <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <!-- Logo + Brand -->
     <div class="flex items-center space-x-2">
-      <img src="https://i.ibb.co/SDxF3H9m/ibricks-transparent.png" alt="iBricks logo" width="30px">
-      <h1 class="text-2xl font-bold text-bitter-light">{{ i18n "brand_name" }}</h1>
+      <img
+        :src="$store.dark.on ? 'https://i.ibb.co/SDxF3H9m/ibricks-transparent.png' : 'https://i.ibb.co/SDxF3H9m/ibricks-transparent.png'"
+        alt="iBricks logo"
+        class="w-8 h-8 object-contain drop-shadow"
+      />
+      <h1 :class="$store.dark.on ? 'text-bitter-light' : 'text-bitter-light'" class="text-2xl font-bold">
+        {{ i18n "brand_name" }}
+      </h1>
     </div>
-    <nav class="hidden md:flex space-x-6 text-sm font-medium">
-      <a href="#about" class="text-bitter-light hover:text-white">{{ i18n "nav_about" }}</a>
-      <a href="#services" class="text-bitter-light hover:text-white">{{ i18n "nav_services" }}</a>
-      <a href="#features" class="text-bitter-light hover:text-white">{{ i18n "nav_features" }}</a>
-      <a href="#mission" class="text-bitter-light hover:text-white">{{ i18n "nav_mission" }}</a>
-      <a href="#contact" class="text-bitter-light hover:text-white">{{ i18n "nav_contact" }}</a>
-      <a href="/en/" class="text-gray-700 hover:text-orange-600">🇬🇧</a>
-      <a href="/pl/" class="text-gray-700 hover:text-orange-600">🇵🇱</a>
-      <a href="/fr/" class="text-gray-700 hover:text-orange-600">🇫🇷</a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6 text-sm font-medium items-center">
+      <a href="#about" :class="$store.dark.on ? 'text-bitter-light hover:text-white' : 'text-bitter-light hover:text-white'">{{ i18n "nav_about" }}</a>
+      <a href="#services" :class="$store.dark.on ? 'text-bitter-light hover:text-white' : 'text-bitter-light hover:text-white'">{{ i18n "nav_services" }}</a>
+      <a href="#features" :class="$store.dark.on ? 'text-bitter-light hover:text-white' : 'text-bitter-light hover:text-white'">{{ i18n "nav_features" }}</a>
+      <a href="#mission" :class="$store.dark.on ? 'text-bitter-light hover:text-white' : 'text-bitter-light hover:text-white'">{{ i18n "nav_mission" }}</a>
+      <a href="#contact" :class="$store.dark.on ? 'text-bitter-light hover:text-white' : 'text-bitter-light hover:text-white'">{{ i18n "nav_contact" }}</a>
+      <a href="/en/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇬🇧</a>
+      <a href="/pl/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇵🇱</a>
+      <a href="/fr/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇫🇷</a>
+
+      <!-- Dark Mode Toggle -->
+      <button @click="$store.dark.toggle()" class="ml-4 hover:text-white transition-colors duration-300"
+        :class="$store.dark.on ? 'text-bitter hover:text-bitter-light' : 'text-bitter-light hover:text-white'">
+        <i :class="$store.dark.on ? 'fas fa-sun' : 'fas fa-moon'" class="text-xl"></i>
+      </button>
     </nav>
-        <button @click="open = !open" class="md:hidden text-bitter-light focus:outline-none">
-          <i x-show="!open" class="fas fa-bars text-xl"></i>
-          <i x-show="open" class="fas fa-xmark text-xl"></i>
-        </button>
+
+    <!-- Mobile Toggle -->
+    <button @click="open = !open" class="md:hidden focus:outline-none"
+      :class="$store.dark.on ? 'text-bitter-light' : 'text-bitter-light'">
+      <i x-show="!open" class="fas fa-bars text-xl"></i>
+      <i x-show="open" class="fas fa-xmark text-xl"></i>
+    </button>
   </div>
-  <nav x-show="open" x-transition class="md:hidden bg-bitter-dark px-6 pb-4 space-y-2">
-    <a href="#about" class="block text-bitter-light hover:text-white">{{ i18n "nav_about" }}</a>
-    <a href="#services" class="block text-bitter-light hover:text-white">{{ i18n "nav_services" }}</a>
-    <a href="#features" class="block text-bitter-light hover:text-white">{{ i18n "nav_features" }}</a>
-    <a href="#mission" class="block text-bitter-light hover:text-white">{{ i18n "nav_mission" }}</a>
-    <a href="#contact" class="block text-bitter-light hover:text-white">{{ i18n "nav_contact" }}</a>
-      <a href="/en/" class="text-gray-700 hover:text-orange-600">🇬🇧</a>
-      <a href="/pl/" class="text-gray-700 hover:text-orange-600">🇵🇱</a>
-      <a href="/fr/" class="text-gray-700 hover:text-orange-600">🇫🇷</a>
+
+  <!-- Mobile Nav -->
+  <nav x-show="open" x-transition
+    :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter-dark text-bitter-light'"
+    class="md:hidden px-6 pb-4 space-y-2">
+    <a href="#about" class="block hover:text-white">{{ i18n "nav_about" }}</a>
+    <a href="#services" class="block hover:text-white">{{ i18n "nav_services" }}</a>
+    <a href="#features" class="block hover:text-white">{{ i18n "nav_features" }}</a>
+    <a href="#mission" class="block hover:text-white">{{ i18n "nav_mission" }}</a>
+    <a href="#contact" class="block hover:text-white">{{ i18n "nav_contact" }}</a>
+    <a href="/en/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇬🇧</a>
+    <a href="/pl/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇵🇱</a>
+    <a href="/fr/" :class="$store.dark.on ? 'text-gray-300 hover:text-bitter' : 'text-gray-700 hover:text-orange-600'">🇫🇷</a>
+    <button @click="$store.dark.toggle()" class="ml-4 hover:text-white transition-colors duration-300"
+      :class="$store.dark.on ? 'text-bitter hover:text-bitter-light' : 'text-bitter-light hover:text-white'">
+      <i :class="$store.dark.on ? 'fas fa-sun' : 'fas fa-moon'" class="text-xl"></i>
+    </button>
   </nav>
 </header>
 
+
 <!-- Hero -->
-<section class="bg-gradient-to-br from-bitter to-bitter-dark text-white py-20">
+<section :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-gradient-to-br from-bitter to-bitter-dark text-white'" class="py-20 transition-colors duration-300">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-4">{{ i18n "hero_title" }}</h2>
-    <p class="text-lg mb-6">{{ i18n "hero_description" }}</p>
-    <a href="#features" class="bg-white text-bitter px-6 py-2 rounded font-semibold hover:bg-bitter-light">{{ i18n "hero_cta" }}</a>
+    <h2 :class="$store.dark.on ? 'text-4xl font-bold mb-4 text-bitter' : 'text-4xl font-bold mb-4 text-white'">
+      {{ i18n "hero_title" }}
+    </h2>
+    <p :class="$store.dark.on ? 'text-lg mb-6 text-gray-300' : 'text-lg mb-6 text-white'">
+      {{ i18n "hero_description" }}
+    </p>
+    <a href="#features"
+       :class="$store.dark.on ? 'bg-bitter text-black px-6 py-2 rounded font-semibold hover:bg-bitter-light' : 'bg-white text-bitter px-6 py-2 rounded font-semibold hover:bg-bitter-light'"
+       class="transition-colors duration-300">
+      {{ i18n "hero_cta" }}
+    </a>
   </div>
 </section>
+
 
 <!-- About -->
-<section id="about" class="py-20 px-6 bg-white">
+<section id="about" :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-white text-bitter-dark'" class="py-20 px-6 transition-colors duration-300">
   <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-bitter mb-4">{{ i18n "about_title" }}</h2>
-    <p class="text-lg text-bitter-dark">{{ i18n "about_description" }}</p>
+    <h2 :class="$store.dark.on ? 'text-3xl font-bold mb-4 text-bitter' : 'text-3xl font-bold mb-4 text-bitter'">
+      {{ i18n "about_title" }}
+    </h2>
+    <p :class="$store.dark.on ? 'text-lg text-gray-300' : 'text-lg text-bitter-dark'">
+      {{ i18n "about_description" }}
+    </p>
   </div>
 </section>
+
 
 <!-- Services -->
-<section id="services" class="py-20 px-6 bg-bitter-light">
+<section id="services"
+  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter-light text-bitter-dark'"
+  class="py-20 px-6 transition-colors duration-300">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center text-bitter mb-12">{{ i18n "services_title" }}</h2>
+    <h2 :class="$store.dark.on ? 'text-3xl font-bold text-center text-bitter mb-12' : 'text-3xl font-bold text-center text-bitter mb-12'">
+      {{ i18n "services_title" }}
+    </h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_tokenization_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_tokenization_desc" }}</p>
+      <!-- Service Card -->
+      <div
+        :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'"
+        class="transition-colors duration-300">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_tokenization_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_tokenization_desc" }}
+        </p>
       </div>
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_identity_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_identity_desc" }}</p>
+
+      <!-- Repeat for other services -->
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_identity_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_identity_desc" }}
+        </p>
       </div>
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_dao_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_dao_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_dao_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_dao_desc" }}
+        </p>
       </div>
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_shares_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_shares_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_shares_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_shares_desc" }}
+        </p>
       </div>
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_platform_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_platform_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_platform_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_platform_desc" }}
+        </p>
       </div>
-      <div class="bg-white p-6 rounded shadow">
-        <h3 class="text-xl font-semibold text-bitter mb-2">{{ i18n "service_access_title" }}</h3>
-        <p class="text-bitter-dark">{{ i18n "service_access_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-white border border-bitter-light rounded-xl p-6'">
+        <h3 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "service_access_title" }}
+        </h3>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "service_access_desc" }}
+        </p>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Features -->
-<section id="features" class="py-20 px-6 bg-white">
+<section id="features"
+  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-white text-bitter-dark'"
+  class="py-20 px-6 transition-colors duration-300">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center text-bitter mb-12">{{ i18n "features_title" }}</h2>
+    <h2 :class="$store.dark.on ? 'text-3xl font-bold text-center text-bitter mb-12' : 'text-3xl font-bold text-center text-bitter mb-12'">
+      {{ i18n "features_title" }}
+    </h2>
     <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-bitter-light p-6 rounded shadow">
-        <h4 class="text-xl font-semibold text-bitter mb-2">{{ i18n "feature_modular_title" }}</h4>
-        <p class="text-bitter-dark">{{ i18n "feature_modular_desc" }}</p>
+      <!-- Feature Card -->
+      <div
+        :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-bitter-light border border-bitter-light rounded-xl p-6'"
+        class="transition-colors duration-300">
+        <h4 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "feature_modular_title" }}
+        </h4>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "feature_modular_desc" }}
+        </p>
       </div>
-      <div class="bg-bitter-light p-6 rounded shadow">
-        <h4 class="text-xl font-semibold text-bitter mb-2">{{ i18n "feature_secure_title" }}</h4>
-        <p class="text-bitter-dark">{{ i18n "feature_secure_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-bitter-light border border-bitter-light rounded-xl p-6'">
+        <h4 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "feature_secure_title" }}
+        </h4>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "feature_secure_desc" }}
+        </p>
       </div>
-      <div class="bg-bitter-light p-6 rounded shadow">
-        <h4 class="text-xl font-semibold text-bitter mb-2">{{ i18n "feature_interop_title" }}</h4>
-        <p class="text-bitter-dark">{{ i18n "feature_interop_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-bitter-light border border-bitter-light rounded-xl p-6'">
+        <h4 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "feature_interop_title" }}
+        </h4>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "feature_interop_desc" }}
+        </p>
       </div>
-      <div class="bg-bitter-light p-6 rounded shadow">
-        <h4 class="text-xl font-semibold text-bitter mb-2">{{ i18n "feature_empowerment_title" }}</h4>
-        <p class="text-bitter-dark">{{ i18n "feature_empowerment_desc" }}</p>
+
+      <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-6' : 'bg-bitter-light border border-bitter-light rounded-xl p-6'">
+        <h4 :class="$store.dark.on ? 'text-xl font-semibold text-bitter mb-2' : 'text-xl font-semibold text-bitter mb-2'">
+          {{ i18n "feature_empowerment_title" }}
+        </h4>
+        <p :class="$store.dark.on ? 'text-gray-300' : 'text-bitter-dark'">
+          {{ i18n "feature_empowerment_desc" }}
+        </p>
       </div>
     </div>
   </div>
 </section>
 
+
 <!-- Mission -->
-<section id="mission" class="py-20 px-6 bg-bitter text-white text-center">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold mb-4">{{ i18n "mission_title" }}</h2>
-    <p class="text-lg">{{ i18n "mission_description" }}</p>
+<section id="mission"
+  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter text-white'"
+  class="py-20 px-6 text-center transition-colors duration-300">
+  <div class="max-w-4xl mx-auto border border-bitter rounded-xl p-6">
+    <h2 :class="$store.dark.on ? 'text-3xl font-bold mb-4 text-bitter' : 'text-3xl font-bold mb-4 text-white'">
+      {{ i18n "mission_title" }}
+    </h2>
+    <p :class="$store.dark.on ? 'text-lg text-gray-300' : 'text-lg text-white'">
+      {{ i18n "mission_description" }}
+    </p>
   </div>
 </section>
 
+
 <!-- Workflow -->
-<section id="workflow" class="bg-white py-12 px-6">
+<section id="workflow"
+  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-white text-bitter-dark'"
+  class="py-12 px-6 transition-colors duration-300">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">{{ i18n "workflow_title" }}</h2>
-    <div class="bg-gray-100 p-4 rounded shadow">
+    <h2 :class="$store.dark.on ? 'text-3xl font-bold mb-6 text-bitter' : 'text-3xl font-bold mb-6 text-gray-800'">
+      {{ i18n "workflow_title" }}
+    </h2>
+    <div :class="$store.dark.on ? 'bg-black border border-bitter rounded-xl p-4' : 'bg-gray-100 rounded shadow p-4'">
       <div x-data="{ isMobile: window.innerWidth < 768 }" x-init="
         window.addEventListener('resize', () => {
           isMobile = window.innerWidth < 768;
         });
       ">
-        <!-- Mobile Mermaid (vertical) -->
+                <!-- Mobile Mermaid (vertical) -->
         <div x-show="isMobile" class="mermaid font-orbitron">
           flowchart TD
 
@@ -204,8 +348,8 @@
 
             class A,C,D,E,F,G,H,I,J process;
             class B highlight;
-        </div>
 
+      </div>
         <!-- Desktop Mermaid (horizontal) -->
         <div x-show="!isMobile" class="mermaid font-orbitron">
           flowchart LR
@@ -235,27 +379,44 @@
             class A,C,D,E,F,G,H,I,J process;
             class B highlight;
         </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="bg-bitter py-16 px-6 text-white">
-  <div class="max-w-4xl mx-auto text-center">
-    <h3 class="text-3xl font-bold mb-4">{{ i18n "contact_title" }}</h3>
-    <p class="mb-6">{{ i18n "contact_description" }}</p>
-    <a href="mailto:hello@ibricks.org" class="bg-white text-bitter px-6 py-2 rounded font-semibold hover:bg-bitter-light">{{ i18n "contact_cta" }}</a>
+<section id="contact"
+  :class="$store.dark.on ? 'bg-black text-bitter-light' : 'bg-bitter text-white'"
+  class="py-16 px-6 text-center transition-colors duration-300">
+  <div class="max-w-4xl mx-auto border border-bitter rounded-xl p-6">
+    <h3 :class="$store.dark.on ? 'text-3xl font-bold mb-4 text-bitter' : 'text-3xl font-bold mb-4 text-white'">
+      {{ i18n "contact_title" }}
+    </h3>
+    <p :class="$store.dark.on ? 'mb-6 text-gray-300' : 'mb-6 text-white'">
+      {{ i18n "contact_description" }}
+    </p>
+    <a href="mailto:hello@ibricks.org"
+       :class="$store.dark.on ? 'bg-bitter text-black px-6 py-2 rounded font-semibold hover:bg-bitter-light' : 'bg-white text-bitter px-6 py-2 rounded font-semibold hover:bg-bitter-light'"
+       class="transition-colors duration-300">
+      {{ i18n "contact_cta" }}
+    </a>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-bitter-dark text-bitter-light py-6 text-center text-sm">
+<footer
+  :class="$store.dark.on ? 'bg-black text-bitter-light border-t border-bitter' : 'bg-bitter-dark text-bitter-light'"
+  class="py-6 text-center text-sm transition-colors duration-300"
+>
   <p>
     {{ i18n "footer_copyright" }}
     ·
     {{ i18n "footer_affiliation_prefix" }}
-    <a href="https://spectrumai-website.pages.dev/{{ .Site.Language.Lang }}/" class="underline hover:text-white" target="_blank" rel="noopener">
+    <a
+      href="https://spectrumai-website.pages.dev/{{ .Site.Language.Lang }}/"
+      target="_blank"
+      rel="noopener"
+      :class="$store.dark.on ? 'underline hover:text-bitter' : 'underline hover:text-white'"
+    >
       {{ i18n "footer_affiliation_name" }}
     </a>
   </p>
