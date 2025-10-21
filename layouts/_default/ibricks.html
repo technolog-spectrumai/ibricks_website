@@ -258,5 +258,13 @@
 
 <!-- Footer -->
 <footer class="bg-bitter-dark text-bitter-light py-6 text-center text-sm">
-  <p>{{ i18n "footer_copyright" }}</p>
+  <p>
+    {{ i18n "footer_copyright" }}
+    ·
+    {{ i18n "footer_affiliation_prefix" }}
+    <a href="https://spectrumai-website.pages.dev/{{ .Site.Language.Lang }}/" class="underline hover:text-white" target="_blank" rel="noopener">
+      {{ i18n "footer_affiliation_name" }}
+    </a>
+  </p>
 </footer>
+

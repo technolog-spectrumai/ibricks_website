@@ -96,3 +96,10 @@
 - id: node_voting_process
   translation: "Proces głosowania"
 
+- id: footer_copyright
+  translation: "© 2025 SpectrumAi.pl"
+- id: footer_affiliation_prefix
+  translation: "Dumny członek"
+- id: footer_affiliation_name
+  translation: "SpectrumAi.pl"
+
