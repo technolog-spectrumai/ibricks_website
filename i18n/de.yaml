@@ -78,7 +78,7 @@
 - id: node_asset_origination
   translation: "Akquise von Vermögenswerten"
 - id: node_rwa_due_diligence
-  translation: "Due-Diligence-Analyse für reale Vermögenswerte (RWA)"
+  translation: "Due-Diligence-Analyse für reale Vermögenswerte RWA"
 - id: node_asset_valuation
   translation: "Bewertung von Vermögenswerten"
 - id: node_tokenization
@@ -88,7 +88,7 @@
 - id: node_smart_contract
   translation: "Bereitstellung von Smart Contracts"
 - id: node_yield_distribution
-  translation: "Gewinnaussch Dewey
+  translation: "Gewinnaussch Dewey"
 - id: node_governance_setup
   translation: "Konfiguration der Governance"
 - id: node_proposal_creation
