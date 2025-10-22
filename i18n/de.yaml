@@ -88,7 +88,7 @@
 - id: node_smart_contract
   translation: "Bereitstellung von Smart Contracts"
 - id: node_yield_distribution
-  translation: "Gewinnaussch Dewey
+  translation: "Gewinnaussch Dewey"
 - id: node_governance_setup
   translation: "Konfiguration der Governance"
 - id: node_proposal_creation
