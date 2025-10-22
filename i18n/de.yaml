@@ -1,0 +1,104 @@
+- id: site_title
+  translation: "Projekt iBricks"
+- id: brand_name
+  translation: "iBricks"
+
+# Nawigacja
+- id: nav_about
+  translation: "Über uns"
+- id: nav_services
+  translation: "Leistungen"
+- id: nav_features
+  translation: "Funktionen"
+- id: nav_mission
+  translation: "Mission"
+- id: nav_contact
+  translation: "Kontakt"
+
+# Sekcja Hero
+- id: hero_title
+  translation: "Tokenisierung der realen Welt"
+- id: hero_description
+  translation: "Wir stärken Gemeinschaften weltweit durch Blockchain, digitale Identität und dezentralisierte Governance."
+- id: hero_cta
+  translation: "Funktionen entdecken"
+
+# Sekcja O nas
+- id: about_title
+  translation: "Über iBricks"
+- id: about_description
+  translation: "iBricks ist eine globale Infrastrukturinitiative, die auf Blockchain-Technologie basiert. Wir ermöglichen Gemeinschaften die Tokenisierung realer Vermögenswerte, die Schaffung sicherer digitaler Identitäten und die Teilnahme an dezentralisierter Governance. Unsere Mission ist es, allen Menschen – unabhängig von Grenzen oder Vorurteilen – Zugang zu Eigentum, Kapital und Möglichkeiten zu bieten."
+
+# Sekcja Usługi
+- id: services_title
+  translation: "Unsere Dienstleistungen"
+- id: service_tokenization_title
+  translation: "Tokenisierung von Vermögenswerten"
+- id: service_tokenization_desc
+  translation: "Wir wandeln physische Vermögenswerte in digitale Token um, die transparente, anteilige Eigentumsverhältnisse ermöglichen."
+- id: service_identity_title
+  translation: "Digitale Identität"
+- id: service_identity_desc
+  translation: "Systeme für selbstverwaltete Identitäten, die sicheren Zugang, Verifizierung und Reputationsaufbau ermöglichen."
+- id: service_dao_title
+  translation: "DAO-Governance"
+- id: service_dao_desc
+  translation: "Konfigurierbare DAO-Strukturen, die gemeinschaftliche Entscheidungsfindung und Ressourcenzuweisung ermöglichen."
+- id: service_shares_title
+  translation: "Digitale Anteile"
+- id: service_shares_desc
+  translation: "Programmierbare Kapitalinstrumente für Startups, Genossenschaften und lokale Initiativen."
+- id: service_platform_title
+  translation: "Gemeinschaftsplattform"
+- id: service_platform_desc
+  translation: "Werkzeuge für Zusammenarbeit bei Abstimmungen, Vorschlägen und transparenter Kommunikation."
+- id: service_access_title
+  translation: "Globaler Zugang"
+- id: service_access_desc
+  translation: "Infrastruktur, die für Entwicklungsländer und digital ausgeschlossene Gemeinschaften konzipiert ist."
+
+# Sekcja Funkcje
+- id: features_title
+  translation: "Funktionen der Plattform"
+- id: feature_modular_title
+  translation: "Modulare Architektur"
+- id: feature_modular_desc
+  translation: "Entwickelt für Erweiterbarkeit mit Plug-and-Play-Modulen für Identität, Vermögenswerte und Governance."
+- id: feature_secure_title
+  translation: "Sichere Protokolle"
+- id: feature_secure_desc
+  translation: "End-to-End-Verschlüsselung, Zero-Knowledge-Proofs und Kompromisssicherheit sind in das System integriert."
+- id: feature_interop_title
+  translation: "Interoperable Standards"
+- id: feature
+
+# Sekcja Workflow
+- id: workflow_title
+  translation: "Prozessübersicht"
+- id: node_asset_origination
+  translation: "Akquise von Vermögenswerten"
+- id: node_rwa_due_diligence
+  translation: "Due-Diligence-Analyse für reale Vermögenswerte RWA"
+- id: node_asset_valuation
+  translation: "Bewertung von Vermögenswerten"
+- id: node_tokenization
+  translation: "Tokenisierung"
+- id: node_investor_onboarding
+  translation: "Registrierung von Investoren"
+- id: node_smart_contract
+  translation: "Bereitstellung von Smart Contracts"
+- id: node_yield_distribution
+  translation: "Gewinnaussch Dewey"
+- id: node_governance_setup
+  translation: "Konfiguration der Governance"
+- id: node_proposal_creation
+  translation: "Erstellung von Vorschlägen"
+- id: node_voting_process
+  translation: "Abstimmungsprozess"
+
+- id: footer_copyright
+  translation: "© 2025 SpectrumAi.pl"
+- id: footer_affiliation_prefix
+  translation: "Dumny członek"
+- id: footer_affiliation_name
+  translation: "SpectrumAi.pl"
