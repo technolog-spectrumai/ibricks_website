@@ -70,7 +70,26 @@
   translation: "Szyfrowanie end-to-end, dowody zerowej wiedzy i zabezpieczenia po kompromitacji wbudowane w system."
 - id: feature_interop_title
   translation: "Standardy interoperacyjne"
-- id: feature
+- id: feature_interop_desc
+  translation: "Obsługa DID, tokenów ERC oraz otwartych API dla płynnej integracji w różnych ekosystemach."
+- id: feature_empowerment_title
+  translation: "Narzędzia dla społeczności"
+- id: feature_empowerment_desc
+  translation: "Stworzone dla cyfrowych obywateli — działania zespołowe, otwarte narzędzia i adaptacyjne procesy zwiększające wolność i produktywność."
+
+# Sekcja Misja
+- id: mission_title
+  translation: "Nasza misja"
+- id: mission_description
+  translation: "Wizją iBricks jest zdecentralizowany świat, w którym każda osoba i społeczność ma dostęp do bezpiecznej, przejrzystej i sprawiedliwej infrastruktury. Budujemy narzędzia skalowalne w różnych kulturach, regionach i warunkach gospodarczych — aby wzmocnić kolejne miliardy użytkowników."
+
+# Sekcja Kontakt
+- id: contact_title
+  translation: "Dołącz do nas"
+- id: contact_description
+  translation: "Niezależnie czy jesteś deweloperem, inwestorem czy liderem społeczności — chętnie Cię poznamy."
+- id: contact_cta
+  translation: "Skontaktuj się"
 
 # Sekcja Workflow
 - id: workflow_title
@@ -96,6 +115,7 @@
 - id: node_voting_process
   translation: "Proces głosowania"
 
+# Stopka
 - id: footer_copyright
   translation: "© 2025 SpectrumAi.pl"
 - id: footer_affiliation_prefix
