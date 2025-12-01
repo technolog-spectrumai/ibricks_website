@@ -51,6 +51,16 @@
         .label {
           font-family: 'Orbitron', sans-serif;
         }
+        .cluster rect {
+          fill: transparent !important;
+          stroke: #f9710f !important;
+          stroke-width: 1px !important;
+          stroke-dasharray: 3 3 !important;
+        }
+        .cluster text {
+          font-family: 'Orbitron', sans-serif;
+          fill: ${isDark ? '#FFE3CC' : '#4A2C0F'} !important;
+        }
       `
     });
   </script>
@@ -89,6 +99,7 @@
 
               classDef process fill:${processFill},stroke:#f9710f,stroke-width:2px,color:${processText},shape:rect;
               classDef highlight fill:${highlightFill},stroke:#4A2C0F,stroke-width:3px,color:${highlightText},shape:rect;
+
 
               class A,C,D,E,F,G,H,I,J process;
               class B highlight;

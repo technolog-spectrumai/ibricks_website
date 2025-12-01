@@ -70,28 +70,9 @@
   translation: "End-to-End-Verschlüsselung, Zero-Knowledge-Proofs und Kompromisssicherheit sind in das System integriert."
 - id: feature_interop_title
   translation: "Interoperable Standards"
-- id: feature_interop_desc
-  translation: "Unterstützt DID, ERC-Token und offene APIs für nahtlose Integration in verschiedene Ökosysteme."
-- id: feature_empowerment_title
-  translation: "Werkzeuge zur Stärkung der Gemeinschaft"
-- id: feature_empowerment_desc
-  translation: "Für digitale Bürger entwickelt – kollaborative Aktionen, Open-Source-Tools und adaptive Workflows, die Freiheit und Produktivität fördern."
+- id: feature
 
-# Mission
-- id: mission_title
-  translation: "Unsere Mission"
-- id: mission_description
-  translation: "Wir stellen uns eine dezentralisierte Welt vor, in der jede Person und jede Gemeinschaft Zugang zu sicherer, transparenter und gerechter Infrastruktur hat. iBricks verpflichtet sich, Werkzeuge zu entwickeln, die über Kulturen, Regionen und wirtschaftliche Bedingungen hinweg skalierbar sind – und die nächste Milliarde Nutzer befähigen."
-
-# Kontakt
-- id: contact_title
-  translation: "Engagieren Sie sich"
-- id: contact_description
-  translation: "Ob Entwickler, Investor oder Community-Leiter – wir freuen uns, von Ihnen zu hören."
-- id: contact_cta
-  translation: "Kontaktieren Sie uns"
-
-# Workflow
+# Sekcja Workflow
 - id: workflow_title
   translation: "Prozessübersicht"
 - id: node_asset_origination
