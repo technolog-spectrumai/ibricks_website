@@ -1,0 +1,30 @@
+---
+config:
+  theme: default
+  look: neo
+  layout: elk
+---
+flowchart TB
+    Cytadela["Cytadela"] --> Platforma["**Platforma**"]
+    Platforma --> Profil["Profil"] & Komunikator["Komunikator"] & Projekty["Projekty"] & Fundusz-rozwojowy["Fundusz-rozwojowy"]
+    Komunikator --> Projekty
+    Projekty --> Gamifikacja["Gamifikacja"]
+    Gamifikacja --> Smartkontrakt["Smartkontrakt"] & Symulator-gospodarki["Symulator-gospodarki"]
+    Smartkontrakt --> Tokenizacja["Tokenizacja"] & Portfel["Portfel"]
+    Generato-SK["Generator-SL"] --> Smartkontrakt
+    Generator-tokenizacji["Generator-tokenizacji"] --> Tokenizacja
+    Tokenizacja --> Zyski["Zyski"]
+    Zyski --> Fundusz-rozwojowy & Smartkontrakt
+    Portfel --> DID["DID"] & Profil
+    DID --> Platforma
+    Struktura["Struktura"] --> Platforma
+    Profil --> Gildie["Gildie"] & Grupy["Grupy"] & Sila-glosu["Sila-glosu"]
+    Gildie --> Federacje["Federacje"]
+    Grupy --> Federacje
+    Federacje --> Struktura
+    NFT-Badge["NFT-Badge"] --> Portfel & Grupy & Gildie
+    Sila-glosu --> DeGov["DeGov"] & DAO["DAO"]
+    DeGov --> Platforma
+    DAO --> Platforma
+
+    style Platforma stroke-width:2px,stroke-dasharray: 0
