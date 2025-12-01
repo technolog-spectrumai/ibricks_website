@@ -1,0 +1,19 @@
+---
+config:
+  theme: default
+  look: neo
+  layout: elk
+---
+flowchart TB
+    Platforma["**Platforma**"] --> Zglaszanie["Zglaszanie projektów"]
+    Zglaszanie --> DAO["DAO projektowe"]
+    DAO --> Tokenomia["Tokenomia i zarządzanie"]
+    Tokenomia --> Portfel["Portfel Multisig"]
+    Portfel --> Start_projektu["Start projektu - transfer krypto -> fiat"]
+    Start_projektu --> Zyski["Zyski - tranfer fiat -> krypto"]
+    Zyski --> Smartkontrakt["Smartkontrakt"]
+    Smartkontrakt --> DAO & Platforma
+    Platforma -.-> Portfel
+    DAO -.-> Portfel
+
+    style Smartkontrakt stroke:#E1BEE7,stroke-width:2px,stroke-dasharray: 0
